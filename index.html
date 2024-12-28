@@ -11,6 +11,32 @@
         .choices {
             margin-left: 20px;
         }
+        .custom-radio input[type="radio"]:checked::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: black;
+            position: relative;
+            top: -2px;
+            left: -2px;
+        }
+        .custom-radio input[type="radio"] {
+            position: relative;
+        }
+        .custom-radio input[type="radio"]::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid black;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +113,7 @@
                 q.choices.forEach((choice, i) => {
                     const choiceLabel = document.createElement('label');
                     const isChecked = i === answerMap[q.answer] ? 'checked' : '';
+                    choiceLabel.className = 'custom-radio';
                     choiceLabel.innerHTML = `
                         <input type="radio" name="question${index}" value="${choice}" ${isChecked} disabled>
                         ${choice}
