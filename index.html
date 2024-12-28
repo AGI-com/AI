@@ -11,96 +11,21 @@
         .choices {
             margin-left: 20px;
         }
-        .custom-radio input[type="radio"]:checked::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: black;
-            position: relative;
-            top: -2px;
-            left: -2px;
-        }
-        .custom-radio input[type="radio"] {
-            position: relative;
-        }
-        .custom-radio input[type="radio"]::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid black;
-            background-color: white;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
     </style>
 </head>
 <body>
     <div id="quiz-container"></div>
 
     <script>
-        const questions = {
-            "QuestionsList": [
-                {
-                    "question": "What does 'ChatGPT' stand for?",
-                    "choices": [ "Chat Generative Pretrained Transformer", "Chat Generative Processing Text", "Chat Generalized Pretrained Transformer", "Chat General Processing Text" ],
-                    "answer": "A"
-                },
-                {
-                    "question": "Who developed ChatGPT?",
-                    "choices": [ "Google", "Microsoft", "OpenAI", "Facebook" ],
-                    "answer": "C"
-                },
-                {
-                    "question": "What is the primary function of ChatGPT?",
-                    "choices": [ "Image generation", "Text generation", "Audio transcription", "Data analysis" ],
-                    "answer": "B"
-                },
-                {
-                    "question": "Which model architecture is used by ChatGPT?",
-                    "choices": [ "CNN", "RNN", "Transformer", "LSTM" ],
-                    "answer": "C"
-                },
-                {
-                    "question": "What is the latest version of GPT as of December 2024?",
-                    "choices": [ "GPT-2", "GPT-3", "GPT-4", "GPT-5" ],
-                    "answer": "C"
-                },
-                {
-                    "question": "What is the primary training data type for ChatGPT?",
-                    "choices": [ "Images", "Text", "Audio", "Video" ],
-                    "answer": "B"
-                },
-                {
-                    "question": "ChatGPT is known to generate text in which of the following?",
-                    "choices": [ "Conversational style", "Scientific papers only", "Only short responses", "Code exclusively" ],
-                    "answer": "A"
-                },
-                {
-                    "question": "Which company is behind the creation of GPT models?",
-                    "choices": [ "OpenAI", "Google", "IBM", "Microsoft" ],
-                    "answer": "A"
-                },
-                {
-                    "question": "What programming language is often used to interact with ChatGPT?",
-                    "choices": [ "Java", "Python", "C++", "JavaScript" ],
-                    "answer": "B"
-                },
-                {
-                    "question": "Which feature does ChatGPT provide for conversations?",
-                    "choices": [ "Real-time video streaming", "Audio generation", "Text-based responses", "Text and image creation" ],
-                    "answer": "C"
-                }
-            ]
-        };
-
         const answerMap = { "A": 0, "B": 1, "C": 2, "D": 3 };
 
-        function createQuiz() {
+        async function fetchQuestions() {
+            const response = await fetch('questions.json');
+            const questions = await response.json();
+            createQuiz(questions);
+        }
+
+        function createQuiz(questions) {
             const container = document.getElementById('quiz-container');
             questions.QuestionsList.forEach((q, index) => {
                 const questionDiv = document.createElement('div');
@@ -113,7 +38,6 @@
                 q.choices.forEach((choice, i) => {
                     const choiceLabel = document.createElement('label');
                     const isChecked = i === answerMap[q.answer] ? 'checked' : '';
-                    choiceLabel.className = 'custom-radio';
                     choiceLabel.innerHTML = `
                         <input type="radio" name="question${index}" value="${choice}" ${isChecked} disabled>
                         ${choice}
@@ -127,7 +51,7 @@
             });
         }
 
-        createQuiz();
+        fetchQuestions();
     </script>
 </body>
 </html>
