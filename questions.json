@@ -1,0 +1,54 @@
+{
+    "QuestionsList": [
+        {
+            "question": "What does 'ChatGPT' stand for?",
+            "choices": [ "Chat Generative Pretrained Transformer", "Chat Generative Processing Text", "Chat Generalized Pretrained Transformer", "Chat General Processing Text" ],
+            "answer": "A"
+        },
+        {
+            "question": "Who developed ChatGPT?",
+            "choices": [ "Google", "Microsoft", "OpenAI", "Facebook" ],
+            "answer": "C"
+        },
+        {
+            "question": "What is the primary function of ChatGPT?",
+            "choices": [ "Image generation", "Text generation", "Audio transcription", "Data analysis" ],
+            "answer": "B"
+        },
+        {
+            "question": "Which model architecture is used by ChatGPT?",
+            "choices": [ "CNN", "RNN", "Transformer", "LSTM" ],
+            "answer": "C"
+        },
+        {
+            "question": "What is the latest version of GPT as of December 2024?",
+            "choices": [ "GPT-2", "GPT-3", "GPT-4", "GPT-5" ],
+            "answer": "C"
+        },
+        {
+            "question": "What is the primary training data type for ChatGPT?",
+            "choices": [ "Images", "Text", "Audio", "Video" ],
+            "answer": "B"
+        },
+        {
+            "question": "ChatGPT is known to generate text in which of the following?",
+            "choices": [ "Conversational style", "Scientific papers only", "Only short responses", "Code exclusively" ],
+            "answer": "A"
+        },
+        {
+            "question": "Which company is behind the creation of GPT models?",
+            "choices": [ "OpenAI", "Google", "IBM", "Microsoft" ],
+            "answer": "A"
+        },
+        {
+            "question": "What programming language is often used to interact with ChatGPT?",
+            "choices": [ "Java", "Python", "C++", "JavaScript" ],
+            "answer": "B"
+        },
+        {
+            "question": "Which feature does ChatGPT provide for conversations?",
+            "choices": [ "Real-time video streaming", "Audio generation", "Text-based responses", "Text and image creation" ],
+            "answer": "C"
+        }
+    ]
+}
