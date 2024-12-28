@@ -5,11 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Questions</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .question {
             margin-bottom: 20px;
         }
+
+        .question p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
         .choices {
             margin-left: 20px;
+        }
+
+        .choices label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .choices input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .choices input[type="radio"]:checked + span {
+            font-weight: bold;
+            color: #000;
         }
     </style>
 </head>
@@ -40,10 +78,9 @@
                     const isChecked = i === answerMap[q.answer] ? 'checked' : '';
                     choiceLabel.innerHTML = `
                         <input type="radio" name="question${index}" value="${choice}" ${isChecked} disabled>
-                        ${choice}
+                        <span>${choice}</span>
                     `;
                     choicesDiv.appendChild(choiceLabel);
-                    choicesDiv.appendChild(document.createElement('br'));
                 });
 
                 questionDiv.appendChild(choicesDiv);
